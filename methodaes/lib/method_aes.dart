@@ -34,55 +34,74 @@ class _MyWidgetState extends State<MethodAES> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
+      //app bar
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: Text(
-          "Encryption/ Decryption",
+          "Encryption / Decryption",
           style: TextStyle(
             color: Colors.white
           ),
         ),
       ),
+      //body
       body: Center(
         child: Column(
           children: [
+            SizedBox(height: 100),
             Padding(
               padding: const EdgeInsets.all(15.0),
-              child: TextField(
-                controller: tec,
+              child: Container(
+                width: 400,
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.blueGrey[200],
+                ),
+                child: TextField(
+                  controller: tec,
+                  maxLength: 55,
+                  decoration: InputDecoration(
+                    hintText: "",
+                  ),
+                ),
               ),
             ),
+            SizedBox(height: 20),
             Text(
-              "Plain text",
+              "Inserted Text",
               style: TextStyle(
-                color: Colors.blue[400],
+                color: Colors.black,
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
               ),
             ),
+            SizedBox(height: 5,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                plainText == null ? "" : plainText,
+                plainText == null ? "-----" : plainText,
               ),
             ),
+            SizedBox(height: 5,),
             Text(
               "Encrypted text",
               style: TextStyle(
-                color: Colors.blue[400],
+                color: Colors.black,
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
               ),
             ),
+            SizedBox(height: 5,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                encryptedText == null ? "" : encryptedText is encrypt.Encrypted ? encryptedText.base64 : encryptedText,
+                encryptedText == null ? "----" : encryptedText is encrypt.Encrypted ? encryptedText.base64 : encryptedText,
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 300,),
                 GestureDetector(
                   onTap: () {
                     plainText = tec.text;
@@ -91,15 +110,20 @@ class _MyWidgetState extends State<MethodAES> {
                     });
                   },
                   child: Container(
-                    width: 100,
+                    width: 120,
                     height: 60,
-                    color: Colors.grey,
-                    child: Text(
-                      "Encrypt",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color:  Colors.grey[400],
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Encrypt",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -112,15 +136,20 @@ class _MyWidgetState extends State<MethodAES> {
                     });
                   },
                   child: Container(
-                    width: 100,
+                    width: 120,
                     height: 60,
-                    color: Colors.grey,
-                    child: Text(
-                      "Decrypt",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color:  Colors.grey[400],
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Decrypt",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
