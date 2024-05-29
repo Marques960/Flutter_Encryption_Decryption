@@ -12,15 +12,14 @@ import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter/material.dart';
 import 'package:methodaes/algorithm.dart';
 
-class DesktopMenuGraficos extends StatefulWidget {
-  final String id;
-  const DesktopMenuGraficos({super.key, required this.id});
+class MethodAES extends StatefulWidget {
+  const MethodAES({super.key});
 
   @override
-  State<DesktopMenuGraficos> createState() => _MyWidgetState();
+  State<MethodAES> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<DesktopMenuGraficos> {
+class _MyWidgetState extends State<MethodAES> {
 
   @override
   void initState() {
